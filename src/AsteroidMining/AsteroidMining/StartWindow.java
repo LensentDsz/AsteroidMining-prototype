@@ -63,18 +63,36 @@ public class StartWindow {
             b_start.setBounds(300,280,244,35);
             b_start.setForeground(Color.white);
            
-            b_start.addActionListener(new ButtonListener(this));
+            //b_start.addActionListener(new ButtonListener(this));
 			b_start.setContentAreaFilled(false);
 			label_bg.add(b_start);
-
+            b_start.addActionListener(new ActionListener()//Anonymous Classes
+            {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                gui.w_menu=false;
+				gui.w_game=true;
+				gui.setFocusable(true);
+                System.out.println("start");
+                b_start.setText("click");
+             }
+           
+            });
             gui.b_start=this.b_start;
 			b_end= new JButton("Exit");
 			b_end.setBounds(300,330,244,35);
             b_end.setForeground(Color.white);
-			b_end.addActionListener(new ButtonListener(this));
+			//b_end.addActionListener(new ButtonListener(this));
 			b_end.setContentAreaFilled(false);
 			label_bg.add(b_end);
-
+            b_start.addActionListener(new ActionListener()//Anonymous Classes
+            {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+               System.exit(0);
+             }
+           
+            });
 
             b_end.setVisible(true);
             b_start.setVisible(true);
@@ -85,34 +103,34 @@ public class StartWindow {
 
 
 
-    private class ButtonListener implements ActionListener
-	{
+    // private class ButtonListener implements ActionListener
+	// {
 
-		GUIWindow gui =null;
- 		StartWindow menu = null;
-		ButtonListener(StartWindow menu)
-		{
-			this.menu=menu;
-			this.gui=menu.gui;
-		}
-		public void actionPerformed(ActionEvent e) 
-		{
+	// 	GUIWindow gui =null;
+ 	// 	StartWindow menu = null;
+	// 	ButtonListener(StartWindow menu)
+	// 	{
+	// 		this.menu=menu;
+	// 		this.gui=menu.gui;
+	// 	}
+	// 	public void actionPerformed(ActionEvent e) 
+	// 	{
          
-			if(e.getSource()==menu.b_start)
-			{
-				gui.w_menu=false;
-				gui.w_game=true;
-				gui.setFocusable(true);
-                System.out.println("start");
-                b_start.setText("click");
+	// 		// if(e.getSource()==menu.b_start)
+	// 		// {
+	// 		// 	gui.w_menu=false;
+	// 		// 	gui.w_game=true;
+	// 		// 	gui.setFocusable(true);
+    //         //     System.out.println("start");
+    //         //     b_start.setText("click");
 
-			}
-			else if(e.getSource()==menu.b_end)
-			{
-				System.exit(0);
-                System.out.println("exit");
-			}
-        }
+	// 		// }
+	// 		// else if(e.getSource()==menu.b_end)
+	// 		// {
+	// 		// 	System.exit(0);
+    //         //     System.out.println("exit");
+	// 		// }
+    //     }
 		
-	}
+	// }
 }
